@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="crast-mark.png">
+<title>Crast RobRun · لوحة المفاتيح</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#000;
+  --line:#ffffff2b;
+  --hair:#ffffff14;
+  --text:#f6f6f6;
+  --muted:#9a9a9a;
+  --faint:#6c6c6c;
+  --raise:#0d0d0d;
+  --pad:18px;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{
+  margin:0;background:#000;color:var(--text);
+  font:14px/1.5 "Segoe UI",system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:radial-gradient(circle,#ffffff24 1px,transparent 1.2px);
+  background-size:20px 20px;
+  mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%);
+}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+::selection{background:#fff;color:#000}
+.wrap{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:22px 22px 60px}
+header{
+  display:flex;align-items:center;gap:14px;min-height:54px;
+  padding:8px 14px;border:1px solid var(--line);border-radius:var(--r);
+  background:linear-gradient(180deg,#0b0b0b,#030303);
+  box-shadow:0 18px 60px #000a;
+}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
+.brand img{width:36px;height:36px;border-radius:10px;object-fit:cover;border:1px solid #ffffff2e}
+.brand b{display:block;font-size:15px;letter-spacing:.01em;line-height:1.1;white-space:nowrap}
+.brand span{display:block;color:var(--faint);font-size:10px;margin-top:3px;letter-spacing:.06em}
+nav{display:flex;align-items:center;gap:3px;margin-left:auto;padding:3px;border:1px solid var(--hair);border-radius:10px;background:#050505}
+nav button{
+  height:32px;padding:0 14px;border:0;border-radius:8px;background:transparent;
+  color:var(--muted);font-size:12.5px;transition:background .15s,color .15s;
+}
+nav button:hover{color:#fff;background:#101010}
+nav button.on{background:#151515;color:#fff;box-shadow:inset 0 0 0 1px #ffffff1f}
+.lang{
+  height:34px;padding:0 13px;border:1px solid var(--line);border-radius:9px;
+  background:#070707;color:var(--muted);font-size:12px;white-space:nowrap;
+}
+.lang:hover{color:#fff;border-color:#ffffff4d}
+h1{margin:0;font-size:clamp(24px,3.2vw,38px);line-height:1.08;letter-spacing:-.025em}
+h2{margin:0;font-size:13px;font-weight:650;letter-spacing:.01em}
+p{margin:0;color:var(--muted)}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.eyebrow::before{content:"";width:5px;height:5px;border-radius:50%;background:#fff}
+.hero{
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  margin-top:18px;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  background:linear-gradient(120deg,#0d0d0d 0%,#050505 55%,#000 100%);
+  min-height:280px;
+}
+.hero-copy{padding:34px 34px 30px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.hero-copy p{max-width:44ch;font-size:13.5px}
+.hero-art{
+  position:relative;min-height:260px;
+  background-image:linear-gradient(90deg,#050505 0%,#05050500 34%),url("crast-hero.jpg");
+  background-size:cover;background-position:center;
+}
+.hero-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 40%,#0009 100%)}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.row.end{justify-content:space-between}
+.grow{flex:1;min-width:150px}
+label.field{display:flex;flex-direction:column;gap:6px;color:var(--faint);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+input{
+  width:100%;height:42px;padding:0 13px;border:1px solid #ffffff29;border-radius:10px;
+  background:#080808;color:var(--text);outline:none;transition:border-color .15s,box-shadow .15s;
+}
+input:focus{border-color:#ffffff6b;box-shadow:0 0 0 3px #ffffff12}
+input::placeholder{color:#5e5e5e}
+button.primary{
+  height:42px;padding:0 20px;border:0;border-radius:10px;background:#f5f5f5;color:#080808;
+  font-weight:650;transition:transform .1s,background .15s;
+}
+button.primary:hover{background:#fff}
+button.primary:active{transform:translateY(1px)}
+button.ghost{
+  height:37px;padding:0 14px;border:1px solid var(--line);border-radius:9px;
+  background:#080808;color:var(--text);font-size:12.5px;
+}
+button.ghost:hover{border-color:#ffffff52;background:#101010}
+button.ghost:disabled{opacity:.38;cursor:default}
+button.small{height:30px;padding:0 10px;border-radius:7px;font-size:11.5px}
+.panel{
+  margin-top:14px;border:1px solid var(--line);border-radius:var(--r);
+  background:linear-gradient(180deg,#0a0a0a,#030303);overflow:hidden;
+}
+.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 17px;border-bottom:1px solid var(--hair)}
+.panel-body{padding:16px 17px}
+.list{display:flex;flex-direction:column}
+.keyrow{display:flex;align-items:center;gap:12px;padding:12px 17px;border-top:1px solid var(--hair)}
+.keyrow:first-child{border-top:0}
+.keyrow code{
+  flex:1;min-width:0;font:13px/1.4 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  letter-spacing:.06em;color:#fff;overflow-wrap:anywhere;
+}
+.keyrow .tiny{color:var(--faint);font-size:10.5px}
+.empty{padding:24px 17px;color:var(--faint);font-size:12.5px}
+.badge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:10.5px}
+.badge.good{color:#fff;border-color:#ffffff66;background:#111}
+.badge.bad{color:#fff;border-color:#fff;background:#000}
+.muted{color:var(--faint);font-size:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.accounts{display:flex;flex-direction:column}
+.account{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--hair);flex-wrap:wrap}
+.account:first-child{border-top:0}
+.account .who{min-width:130px}
+.account .who b{display:block;font-size:13px}
+.account .who span{display:block;color:var(--faint);font-size:10.5px;margin-top:2px}
+.account code{flex:1;min-width:0;color:var(--muted);font:11.5px ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
+.account .actions{display:flex;gap:6px;flex-wrap:wrap;margin-inline-start:auto}
+.mini{
+  height:27px;padding:0 10px;border:1px solid #ffffff3a;border-radius:8px;background:#0a0a0a;
+  color:var(--muted);font:10.5px "Segoe UI",Tahoma,sans-serif;cursor:pointer;
+}
+.mini:hover{color:#fff;border-color:#ffffff80;background:#141414}
+.mini.strong{background:#f5f5f5;color:#080808;border-color:#f5f5f5;font-weight:600}
+.mini.strong:hover{background:#fff}
+.modal{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:24px;background:#000c;backdrop-filter:blur(4px)}
+.modal-card{width:min(760px,94vw);border:1px solid #ffffff38;border-radius:16px;background:#060606;box-shadow:0 30px 90px #000}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--hair)}
+.modal-head h3{font-size:14px}
+.preview{
+  position:relative;aspect-ratio:16/9;margin:16px;border:1px solid #ffffff24;border-radius:12px;overflow:hidden;
+  background:linear-gradient(180deg,#00000010,#0009),url("crast-hero.jpg") center/cover;
+}
+.preview:after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(180deg,#ffffff08 0 1px,transparent 1px 4px);
+}
+.pbox{position:absolute;border:1px solid #fff;box-shadow:0 0 0 1px #0006 inset}
+.pbox span{position:absolute;top:-17px;left:-1px;padding:1px 5px;background:#000d;color:#fff;font:9.5px ui-monospace,Consolas,monospace;white-space:nowrap}
+.pdot{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 6px #fff}
+.pline{position:absolute;height:1px;background:#ffffffd0;transform-origin:0 0}
+.pcross{position:absolute;left:50%;top:50%;width:14px;height:14px;transform:translate(-50%,-50%);border:1px solid #fff;border-radius:50%}
+.modal-note{padding:0 18px 18px;color:var(--faint);font-size:11.5px;line-height:1.7}
+.devgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px;font-size:12px}
+.devgrid div{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--hair);min-width:0}
+.devgrid span{color:var(--faint);white-space:nowrap}
+.devgrid b{font-weight:500;color:var(--text);text-align:left;overflow-wrap:anywhere;direction:ltr}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.step{padding:18px;border:1px solid var(--line);border-radius:var(--r);background:#070707}
+.step b{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:#fff;color:#000;font-size:11px;margin-bottom:12px}
+.step p{margin-top:5px;font-size:12.5px}
+.note{margin-top:12px;padding:12px 14px;border:1px solid #ffffff2e;border-radius:10px;background:#0a0a0a;color:#bdbdbd;font-size:12px}
+footer{display:flex;justify-content:space-between;gap:16px;margin-top:26px;color:#4e4e4e;font-size:10.5px}
+footer b{font-weight:500;color:#6f6f6f}
+#toast{
+  position:fixed;right:24px;bottom:24px;z-index:20;max-width:min(340px,80vw);
+  padding:11px 15px;border:1px solid #ffffff29;border-radius:10px;
+  background:#121212;color:#fff;font-size:12.5px;box-shadow:0 18px 50px #000c;
+  opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .18s,transform .18s;
+}
+#toast.up{opacity:1;transform:none}
+[hidden]{display:none!important}
+body[dir="rtl"]{direction:rtl}
+body[dir="rtl"] nav{margin-left:0;margin-right:auto}
+body[dir="rtl"] .hero-art{background-image:linear-gradient(270deg,#050505 0%,#05050500 34%),url("crast-hero.jpg")}
+body[dir="rtl"] .eyebrow,body[dir="rtl"] label.field{letter-spacing:0;text-transform:none}
+@media (max-width:900px){
+  .wrap{padding:14px 14px 44px}
+  header{flex-wrap:wrap}
+  nav{margin-left:0;order:3;width:100%;justify-content:space-between}
+  nav button{flex:1;padding:0 8px}
+  .hero{grid-template-columns:1fr}
+  .hero-art{min-height:180px;order:-1;background-position:center 58%}
+  .grid2,.steps{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .brand span{display:none}
+  .lang{height:30px;padding:0 10px}
+  .keyrow{flex-wrap:wrap;gap:8px}
+  .keyrow code{flex-basis:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <img src="crast-mark.png" alt="">
+      <div><b>Crast RobRun</b><span data-i18n="brand_sub">لوحة المفاتيح</span></div>
+    </div>
+    <nav>
+      <button class="on" data-tab="keys" data-i18n="tab_keys">Keys</button>
+      <button data-tab="accounts" data-i18n="tab_accounts">Accounts</button>
+      <button data-tab="help" data-i18n="tab_help">How it works</button>
+    </nav>
+    <button class="lang" id="lang">العربية</button>
+  </header>
+
+  <main>
+    <section data-page="keys">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow" data-i18n="eyebrow">Offline keys</span>
+          <h1 data-i18n="hero_title">Generate product keys</h1>
+          <p data-i18n="hero_text">One key unlocks one account. No server needed.</p>
+          <div class="row">
+            <label class="field grow">
+              <span data-i18n="qty">Amount</span>
+              <input id="qty" type="number" min="1" max="100" value="1" inputmode="numeric">
+            </label>
+            <button class="primary" id="gen" data-i18n="generate">Generate</button>
+          </div>
+        </div>
+        <div class="hero-art" role="img" aria-label="Crast RobRun"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2 data-i18n="generated">Generated keys</h2>
+          <div class="row">
+            <button class="ghost small" id="copy_all" data-i18n="copy_all">Copy all</button>
+            <button class="ghost small" id="download" data-i18n="download">Download .txt</button>
+          </div>
+        </div>
+        <div class="list" id="keys"><div class="empty" data-i18n="no_keys">No keys yet.</div></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-body">
+          <h2 data-i18n="check_title">Check a key</h2>
+          <div class="row" style="margin-top:10px">
+            <input class="grow" id="check" placeholder="CRST-XXXXX-XXXXX-XXXXX-XXXXX" spellcheck="false">
+            <button class="ghost" id="check_btn" data-i18n="check">Check</button>
+          </div>
+          <p class="muted" id="check_out" style="margin-top:10px" data-i18n="check_hint">Paste a key to verify it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="accounts" hidden>
+      <div class="panel" style="margin-top:18px">
+        <div class="panel-head">
+          <div>
+            <h2 data-i18n="accounts_title">Account builder</h2>
+            <p class="muted" style="margin-top:3px" data-i18n="accounts_text">Creates a login file for the registry.</p>
+          </div>
+          <span class="badge" data-i18n="seller">Seller</span>
+        </div>
+        <div class="panel-body">
+          <div class="grid2">
+            <label class="field"><span data-i18n="username">اسم المستخدم</span><input id="acc_user" spellcheck="false" autocomplete="off" placeholder="player01"></label>
+            <label class="field"><span data-i18n="password">كلمة المرور</span><input id="acc_pass" type="password" autocomplete="new-password" placeholder="••••••"></label>
+            <label class="field" style="grid-column:1 / -1"><span data-i18n="product_key">مفتاح المنتج</span><input id="acc_key" spellcheck="false"></label>
+            <div class="row" style="align-items:flex-end">
+              <button class="ghost" id="acc_new" data-i18n="new_key">مفتاح جديد</button>
+              <button class="primary" id="acc_add" data-i18n="add_account">إنشاء الحساب</button>
+              <button class="ghost" id="acc_export" data-i18n="export_reg">تنزيل ملف الرجستري</button>
+            </div>
+          </div>
+          <div class="note" data-i18n="accounts_note">سجّل الحساب هنا أولاً: اسم المستخدم وكلمة المرور والمفتاح، ثم نزّل CrastAccounts.reg واستورده قبل فتح اللودر.</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2 data-i18n="device_title">معلومات الجهاز</h2>
+            <p class="muted" style="margin-top:3px" data-i18n="device_text">تُجمع من المتصفح عند فتح اللوحة.</p>
+          </div>
+          <button class="ghost small" id="dev_copy" data-i18n="copy">نسخ</button>
+        </div>
+        <div class="panel-body">
+          <div class="devgrid" id="deviceinfo"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2 data-i18n="accounts_list">الحسابات</h2>
+        </div>
+        <div class="panel-body accounts" id="accounts"><div class="empty" style="padding:8px 0" data-i18n="no_accounts">لا توجد حسابات بعد.</div></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2 data-i18n="blacklist_title">القائمة السوداء</h2>
+            <p class="muted" style="margin-top:3px" data-i18n="blacklist_text">إدخال واحد يمنع الجهاز أو الحساب من الدخول والتسجيل. لا يمكن حذف الإدخالات.</p>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="grid2">
+            <label class="field"><span data-i18n="hwid">بصمة الجهاز</span><input id="bl_hwid" spellcheck="false" maxlength="16" placeholder="16 HEX"></label>
+            <label class="field"><span data-i18n="username">اسم المستخدم</span><input id="bl_user" spellcheck="false" maxlength="16"></label>
+            <label class="field"><span data-i18n="reason">السبب</span><input id="bl_reason" spellcheck="false" maxlength="64"></label>
+            <div class="row" style="align-items:flex-end">
+              <button class="primary" id="bl_add" data-i18n="blacklist_add">إضافة للحظر</button>
+            </div>
+          </div>
+          <div class="accounts" id="blacklist" style="margin-top:10px"><div class="empty" style="padding:8px 0" data-i18n="no_blacklist">لا توجد إدخالات.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section data-page="help" hidden>
+      <div class="panel" style="margin-top:18px">
+        <div class="panel-body">
+          <h2 data-i18n="help_title">Three steps</h2>
+          <div class="steps">
+            <div class="step"><b>1</b><h2 data-i18n="step1_t">Generate</h2><p data-i18n="step1_d">Pick an amount and press Generate.</p></div>
+            <div class="step"><b>2</b><h2 data-i18n="step2_t">Deliver</h2><p data-i18n="step2_d">Send one key to each buyer.</p></div>
+            <div class="step"><b>3</b><h2 data-i18n="step3_t">Activate</h2><p data-i18n="step3_d">The buyer registers, opens Settings and redeems the key.</p></div>
+          </div>
+          <div class="note" data-i18n="help_note">Keys are checked inside the loader. Keep this page private.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span data-i18n="foot_left">Crast RobRun · seller tools</span><b data-i18n="foot_right">Local only</b></footer>
+</div>
+<div id="toast" role="status"></div>
+
+<div id="screen_modal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="screen_title">
+    <div class="modal-head">
+      <h3 id="screen_title" data-i18n="screen_title">معاينة الشاشة</h3>
+      <button class="mini" id="screen_close" data-i18n="close">إغلاق</button>
+    </div>
+    <div class="preview" aria-hidden="true">
+      <div class="pbox" style="left:18%;top:37%;width:12%;height:30%"><span>PLAYER · 42m</span></div>
+      <div class="pbox" style="left:56%;top:29%;width:14%;height:36%"><span>PLAYER · 87m</span></div>
+      <div class="pbox" style="left:76%;top:45%;width:9%;height:22%"><span>BOT · 120m</span></div>
+      <div class="pline" style="left:50%;top:50%;width:29%;transform:rotate(-19deg)"></div>
+      <div class="pline" style="left:50%;top:50%;width:23%;transform:rotate(24deg)"></div>
+      <div class="pdot" style="left:35%;top:40%"></div>
+      <div class="pdot" style="left:62%;top:35%"></div>
+      <div class="pdot" style="left:79%;top:51%"></div>
+      <div class="pcross"></div>
+    </div>
+    <p class="modal-note" data-i18n="screen_note">معاينة ثابتة للواجهة. البث المباشر يحتاج وكيل شاشة على جهاز اللاعب.</p>
+  </div>
+</div>
+<script src="crast.js"></script>
+<script>
+"use strict";
+const core = window.CrastCore;
+const $ = id => document.getElementById(id);
+const all = (selector, root) => Array.from((root || document).querySelectorAll(selector));
+const state = { keys: [], accounts: [], blacklist: [], deviceRows: [], deviceText: "", lang: "ar" };
+
+const text = {
+  en: {
+    brand_sub: "Key panel",
+    tab_keys: "Keys",
+    tab_accounts: "Accounts",
+    tab_help: "How it works",
+    eyebrow: "Offline keys",
+    hero_title: "Generate product keys",
+    hero_text: "One key unlocks one account. No server needed.",
+    qty: "Amount",
+    generate: "Generate",
+    generated: "Generated keys",
+    copy_all: "Copy all",
+    download: "Download .txt",
+    no_keys: "No keys yet.",
+    check_title: "Check a key",
+    check: "Check",
+    check_hint: "Paste a key to verify it.",
+    accounts_title: "Account keys",
+    accounts_text: "Create the account here first, then export the registry file.",
+    seller: "Seller",
+    username: "Username",
+    password: "Password",
+    product_key: "Product key",
+    new_key: "New key",
+    add_account: "Create account",
+    accounts_note: "Register here first: username, password and key. Download CrastAccounts.reg and import it before opening the loader.",
+    accounts_list: "Accounts",
+    clear: "Clear",
+    export_reg: "Download CrastAccounts.reg",
+    no_accounts: "No accounts yet.",
+    help_title: "Three steps",
+    step1_t: "Generate",
+    step1_d: "Pick an amount and press Generate.",
+    step2_t: "Create",
+    step2_d: "Add the buyer username, password and key here.",
+    step3_t: "Import",
+    step3_d: "The buyer imports the registry file, then logs in with those credentials.",
+    help_note: "Keys are checked inside the loader. Keep this page private.",
+    foot_left: "Crast RobRun · seller tools",
+    foot_right: "Local only",
+    copied: "Copied.",
+    nothing: "Nothing to copy.",
+    downloaded: "Downloaded.",
+    valid: "Valid key.",
+    invalid: "Invalid key.",
+    need_fields: "Fill every field.",
+    duplicate: "That username is already in the list.",
+    username_bad: "Username must be 3 to 16 letters, numbers or _.",
+    password_bad: "Password must be at least 4 characters.",
+    username_duplicate: "That username already exists.",
+    account_added: "Account added.",
+    blacklist_account: "Blacklist",
+    revoke_account: "Revoke",
+    screen: "Screen",
+    revoked: "Revoked",
+    confirm_blacklist: "Blacklist this account permanently? This cannot be undone.",
+    confirm_revoke: "Revoke this account? The loader will reject it.",
+    account_blacklisted: "Account blacklisted.",
+    account_revoked: "Account revoked.",
+    screen_title: "Screen preview",
+    screen_note: "Static overlay preview. A live game view needs a screen agent on the player's PC.",
+    close: "Close",
+    added: "Key added.",
+    cleared: "Cleared.",
+    exported: "File downloaded.",
+    no_accounts_export: "Add a key first.",
+    empty_check: "Type a key first.",
+    hwid: "Device fingerprint",
+    reason: "Reason",
+    blacklist_title: "Blacklist",
+    blacklist_text: "One entry blocks the device or account from login and registration. Entries cannot be removed.",
+    blacklist_add: "Add to blacklist",
+    no_blacklist: "No entries.",
+    blacklisted: "Blacklisted",
+    bound: "Bound",
+    unbound: "Not bound",
+    hwid_bad: "Device fingerprint must be 16 hex characters.",
+    blacklist_need: "Enter a device fingerprint or a username.",
+    blacklist_added: "Added to the blacklist.",
+    blacklist_duplicate: "That entry already exists.",
+    blacklist_hit: "You are from the blacklist.",
+    key_duplicate: "That key is already used by another account.",
+    device_title: "Device information",
+    device_text: "Collected from the browser when the panel loads.",
+    copy: "Copy"
+  },
+  ar: {
+    brand_sub: "لوحة المفاتيح",
+    tab_keys: "المفاتيح",
+    tab_accounts: "الحسابات",
+    tab_help: "طريقة الاستخدام",
+    eyebrow: "مفاتيح بدون سيرفر",
+    hero_title: "أنشئ مفاتيح المنتج",
+    hero_text: "كل مفتاح يفتح حساب واحد. بدون سيرفر.",
+    qty: "العدد",
+    generate: "إنشاء",
+    generated: "المفاتيح المنشأة",
+    copy_all: "نسخ الكل",
+    download: "تنزيل txt",
+    no_keys: "لا توجد مفاتيح بعد.",
+    check_title: "فحص مفتاح",
+    check: "فحص",
+    check_hint: "الصق مفتاحاً للتأكد منه.",
+    accounts_title: "مفاتيح الحسابات",
+    accounts_text: "سجّل الحساب هنا أولاً ثم صدّر ملف الرجستري.",
+    seller: "للبائع",
+    username: "اسم المستخدم",
+    password: "كلمة المرور",
+    product_key: "مفتاح المنتج",
+    new_key: "مفتاح جديد",
+    add_account: "إنشاء الحساب",
+    accounts_note: "سجّل هنا أولاً: اسم المستخدم وكلمة المرور والمفتاح. نزّل CrastAccounts.reg واستورده قبل فتح اللودر.",
+    accounts_list: "الحسابات",
+    clear: "مسح",
+    export_reg: "تنزيل CrastAccounts.reg",
+    no_accounts: "لا توجد حسابات بعد.",
+    help_title: "ثلاث خطوات",
+    step1_t: "إنشاء",
+    step1_d: "حدد العدد واضغط إنشاء.",
+    step2_t: "تسجيل",
+    step2_d: "أضف اسم المشتري وكلمة المرور والمفتاح هنا.",
+    step3_t: "استيراد",
+    step3_d: "المشتري يستورد ملف الرجستري ثم يدخل بنفس البيانات.",
+    help_note: "المفاتيح تُفحص داخل اللودر. احتفظ بهذه الصفحة لنفسك.",
+    foot_left: "Crast RobRun · أدوات البائع",
+    foot_right: "محلي فقط",
+    copied: "تم النسخ.",
+    nothing: "لا يوجد شيء لنسخه.",
+    downloaded: "تم التنزيل.",
+    valid: "مفتاح صحيح.",
+    invalid: "مفتاح غير صحيح.",
+    need_fields: "اكمل كل الحقول.",
+    duplicate: "الاسم موجود في القائمة.",
+    username_bad: "اسم المستخدم: 3 إلى 16 حرفاً أو رقماً أو _.",
+    password_bad: "كلمة المرور 4 أحرف على الأقل.",
+    username_duplicate: "اسم المستخدم موجود بالفعل.",
+    account_added: "تمت إضافة الحساب.",
+    blacklist_account: "حظر",
+    revoke_account: "إلغاء",
+    screen: "الشاشة",
+    revoked: "ملغي",
+    confirm_blacklist: "حظر هذا الحساب نهائياً؟ لا يمكن التراجع.",
+    confirm_revoke: "إلغاء هذا الحساب؟ اللودر سيرفضه.",
+    account_blacklisted: "تم حظر الحساب.",
+    account_revoked: "تم إلغاء الحساب.",
+    screen_title: "معاينة الشاشة",
+    screen_note: "معاينة ثابتة للواجهة. البث المباشر يحتاج وكيل شاشة على جهاز اللاعب.",
+    close: "إغلاق",
+    added: "تمت إضافة المفتاح.",
+    cleared: "تم المسح.",
+    exported: "تم تنزيل الملف.",
+    no_accounts_export: "أضف مفتاحاً أولاً.",
+    empty_check: "اكتب مفتاحاً أولاً.",
+    hwid: "بصمة الجهاز",
+    reason: "السبب",
+    blacklist_title: "القائمة السوداء",
+    blacklist_text: "إدخال واحد يمنع الجهاز أو الحساب من الدخول والتسجيل. لا يمكن حذف الإدخالات.",
+    blacklist_add: "إضافة للحظر",
+    no_blacklist: "لا توجد إدخالات.",
+    blacklisted: "محظور",
+    bound: "مربوط",
+    unbound: "غير مربوط",
+    hwid_bad: "بصمة الجهاز يجب أن تكون 16 خانة Hex.",
+    blacklist_need: "أدخل بصمة جهاز أو اسم مستخدم.",
+    blacklist_added: "تمت الإضافة للقائمة السوداء.",
+    blacklist_duplicate: "الإدخال موجود بالفعل.",
+    blacklist_hit: "أنت من القائمة السوداء",
+    key_duplicate: "هذا المفتاح مستخدم بحساب آخر.",
+    device_title: "معلومات الجهاز",
+    device_text: "تُجمع من المتصفح عند فتح اللوحة.",
+    copy: "نسخ"
+  }
+};
+
+const shortcuts = {
+  "brand_sub": "brand_sub", "tab_keys": "tab_keys", "tab_accounts": "tab_accounts",
+  "tab_help": "tab_help", "eyebrow": "eyebrow", "hero_title": "hero_title",
+  "hero_text": "hero_text", "qty": "qty", "generate": "generate",
+  "generated": "generated", "copy_all": "copy_all", "download": "download",
+  "no_keys": "no_keys", "check_title": "check_title", "check": "check",
+  "check_hint": "check_hint", "accounts_title": "accounts_title",
+  "accounts_text": "accounts_text", "seller": "seller", "username": "username",
+  "password": "password", "product_key": "product_key", "new_key": "new_key",
+  "add_account": "add_account", "accounts_note": "accounts_note",
+  "accounts_list": "accounts_list", "clear": "clear", "export_reg": "export_reg",
+  "no_accounts": "no_accounts", "help_title": "help_title", "step1_t": "step1_t",
+  "step1_d": "step1_d", "step2_t": "step2_t", "step2_d": "step2_d",
+  "step3_t": "step3_t", "step3_d": "step3_d", "help_note": "help_note",
+  "foot_left": "foot_left", "foot_right": "foot_right"
+};
+
+function t(key) {
+  const table = text[state.lang] || text.en;
+  return table[key] || text.en[key] || key;
+}
+
+function toast(message) {
+  const box = $("toast");
+  box.textContent = message;
+  box.classList.add("up");
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => box.classList.remove("up"), 2600);
+}
+
+function applyLanguage(lang) {
+  state.lang = lang;
+  document.documentElement.lang = lang === "ar" ? "ar" : "en";
+  document.body.dir = lang === "ar" ? "rtl" : "ltr";
+  $("lang").textContent = lang === "ar" ? "English" : "العربية";
+  for (const node of all("[data-i18n]")) {
+    node.textContent = t(node.dataset.i18n);
+  }
+  $("check").placeholder = "CRST-XXXXX-XXXXX-XXXXX-XXXXX";
+  $("acc_key").placeholder = "CRST-XXXXX-XXXXX-XXXXX-XXXXX";
+  localStorage.setItem("crast.keygen.lang", lang);
+}
+
+function showTab(name) {
+  for (const button of all("nav button[data-tab]"))
+    button.classList.toggle("on", button.dataset.tab === name);
+  for (const page of all("[data-page]")) page.hidden = page.dataset.page !== name;
+}
+
+async function copy(textValue) {
+  if (!textValue) { toast(t("nothing")); return; }
+  try {
+    await navigator.clipboard.writeText(textValue);
+    toast(t("copied"));
+  } catch {
+    const area = document.createElement("textarea");
+    area.value = textValue;
+    document.body.appendChild(area);
+    area.select();
+    document.execCommand("copy");
+    area.remove();
+    toast(t("copied"));
+  }
+}
+
+function keyRow(key) {
+  const row = document.createElement("div");
+  row.className = "keyrow";
+  const code = document.createElement("code");
+  code.textContent = key;
+  const button = document.createElement("button");
+  button.className = "ghost small";
+  button.textContent = state.lang === "ar" ? "نسخ" : "Copy";
+  button.addEventListener("click", () => copy(key));
+  row.append(code, button);
+  return row;
+}
+
+function paintKeys() {
+  const box = $("keys");
+  box.innerHTML = "";
+  if (!state.keys.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.textContent = t("no_keys");
+    box.appendChild(empty);
+    return;
+  }
+  for (const key of state.keys) box.appendChild(keyRow(key));
+}
+
+function generate() {
+  let amount = Number($("qty").value);
+  if (!Number.isFinite(amount)) amount = 1;
+  amount = Math.max(1, Math.min(100, Math.floor(amount)));
+  $("qty").value = amount;
+  for (let i = 0; i < amount; ++i) state.keys.unshift(core.makeKey());
+  if (state.keys.length > 500) state.keys.length = 500;
+  paintKeys();
+  saveState();
+}
+
+function download(name, body, type) {
+  const blob = new Blob([body], { type: type || "text/plain;charset=utf-8" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = name;
+  document.body.appendChild(link);
+  link.click();
+  setTimeout(() => { URL.revokeObjectURL(link.href); link.remove(); }, 400);
+}
+
+const STATE_KEY = "crast.keygen.state.v1";
+
+function fromHex(hex) {
+  if (!hex || hex.length % 2) return null;
+  const out = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < out.length; ++i) out[i] = parseInt(hex.slice(i * 2, i * 2 + 2), 16);
+  return out;
+}
+
+async function saveState() {
+  try {
+    const body = JSON.stringify({
+      keys: state.keys,
+      accounts: state.accounts,
+      blacklist: state.blacklist
+    });
+    const blob = await core.seal(core.utf8(body), "state");
+    localStorage.setItem(STATE_KEY, core.toHex(blob));
+  } catch { }
+}
+
+async function loadState() {
+  try {
+    const saved = localStorage.getItem(STATE_KEY);
+    if (!saved) return;
+    const plain = await core.unseal(fromHex(saved), "state");
+    if (!plain) return;
+    const data = JSON.parse(new TextDecoder().decode(plain));
+    if (Array.isArray(data.keys)) state.keys = data.keys;
+    if (Array.isArray(data.accounts)) state.accounts = data.accounts;
+    if (Array.isArray(data.blacklist)) state.blacklist = data.blacklist;
+  } catch { }
+}
+
+function accountFlags(account) {
+  return Number(account.flags) || 0;
+}
+
+function accountBlocked(account) {
+  return (accountFlags(account) & 1) !== 0 || state.blacklist.some(entry =>
+    (entry.hwid && account.hwid && entry.hwid.toLowerCase() === account.hwid.toLowerCase()) ||
+    (entry.user && entry.user.toLowerCase() === account.user.toLowerCase()));
+}
+
+function accountRevoked(account) {
+  return (accountFlags(account) & 2) !== 0;
+}
+
+function paintAccounts() {
+  const box = $("accounts");
+  box.innerHTML = "";
+  if (!state.accounts.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.style.padding = "8px 0";
+    empty.textContent = t("no_accounts");
+    box.appendChild(empty);
+    return;
+  }
+  for (const account of state.accounts) {
+    const row = document.createElement("div");
+    row.className = "account";
+    const who = document.createElement("div");
+    who.className = "who";
+    const name = document.createElement("b");
+    name.textContent = account.user;
+    const created = document.createElement("span");
+    created.textContent = account.created
+      ? new Date(account.created * 1000).toLocaleDateString()
+      : "—";
+    who.append(name, created);
+    const key = document.createElement("code");
+    key.textContent = account.key || "—";
+    const device = document.createElement("code");
+    device.textContent = account.hwid ? account.hwid : t("unbound");
+    row.append(who, key, device);
+
+    if (accountBlocked(account)) {
+      const badge = document.createElement("span");
+      badge.className = "badge bad";
+      badge.textContent = t("blacklisted");
+      row.appendChild(badge);
+    }
+    if (accountRevoked(account)) {
+      const badge = document.createElement("span");
+      badge.className = "badge bad";
+      badge.textContent = t("revoked");
+      row.appendChild(badge);
+    }
+
+    const actions = document.createElement("div");
+    actions.className = "actions";
+    if (!accountBlocked(account)) {
+      const ban = document.createElement("button");
+      ban.className = "mini";
+      ban.textContent = t("blacklist_account");
+      ban.addEventListener("click", () => blacklistAccount(account));
+      actions.appendChild(ban);
+    }
+    if (!accountRevoked(account)) {
+      const revoke = document.createElement("button");
+      revoke.className = "mini";
+      revoke.textContent = t("revoke_account");
+      revoke.addEventListener("click", () => revokeAccount(account));
+      actions.appendChild(revoke);
+    }
+    const screen = document.createElement("button");
+    screen.className = "mini strong";
+    screen.textContent = t("screen");
+    screen.addEventListener("click", () => showScreen(account));
+    actions.appendChild(screen);
+    row.appendChild(actions);
+    box.appendChild(row);
+  }
+}
+
+function blacklistAccount(account) {
+  if (!confirm(t("confirm_blacklist"))) return;
+  const hwid = (account.hwid || "").toUpperCase();
+  const user = account.user || "";
+  const exists = state.blacklist.some(entry =>
+    (entry.hwid || "").toLowerCase() === hwid.toLowerCase() &&
+    (entry.user || "").toLowerCase() === user.toLowerCase());
+  if (!exists) {
+    state.blacklist.push({
+      hwid, user, reason: "seller",
+      time: Math.floor(Date.now() / 1000),
+      token: ""
+    });
+  }
+  account.flags = accountFlags(account) | 1;
+  saveState();
+  paintAccounts();
+  paintBlacklist();
+  toast(t("account_blacklisted"));
+}
+
+function revokeAccount(account) {
+  if (!confirm(t("confirm_revoke"))) return;
+  account.flags = accountFlags(account) | 2;
+  saveState();
+  paintAccounts();
+  toast(t("account_revoked"));
+}
+
+function showScreen(account) {
+  $("screen_title").textContent = t("screen_title") + " · " + (account.user || "");
+  $("screen_modal").hidden = false;
+  $("screen_close").focus();
+}
+
+function hideScreen() {
+  $("screen_modal").hidden = true;
+}
+
+function paintBlacklist() {
+  const box = $("blacklist");
+  box.innerHTML = "";
+  if (!state.blacklist.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty";
+    empty.style.padding = "8px 0";
+    empty.textContent = t("no_blacklist");
+    box.appendChild(empty);
+    return;
+  }
+  for (const entry of state.blacklist) {
+    const row = document.createElement("div");
+    row.className = "account";
+    const who = document.createElement("div");
+    who.className = "who";
+    const name = document.createElement("b");
+    name.textContent = entry.user || entry.hwid || "—";
+    const reason = document.createElement("span");
+    reason.textContent = entry.reason || "—";
+    who.append(name, reason);
+    const device = document.createElement("code");
+    device.textContent = entry.hwid || "—";
+    row.append(who, device);
+    box.appendChild(row);
+  }
+}
+
+function addAccount() {
+  const user = $("acc_user").value.trim();
+  const pass = $("acc_pass").value;
+  let key = $("acc_key").value.trim();
+  if (!user || !pass || !key) { toast(t("need_fields")); return; }
+  if (!/^[A-Za-z0-9_]{3,16}$/.test(user)) {
+    toast(t("username_bad"));
+    $("acc_user").focus();
+    return;
+  }
+  if (pass.length < 4) {
+    toast(t("password_bad"));
+    $("acc_pass").focus();
+    return;
+  }
+  if (!core.validKey(key)) { toast(t("invalid")); return; }
+  const formatted = core.format(core.normalize(key));
+  if (state.accounts.some(account =>
+      account.user.toLowerCase() === user.toLowerCase())) {
+    toast(t("username_duplicate"));
+    $("acc_user").focus();
+    return;
+  }
+  if (state.accounts.some(account =>
+      account.key && account.key.toLowerCase() === formatted.toLowerCase())) {
+    toast(t("key_duplicate"));
+    return;
+  }
+  if (state.blacklist.some(entry =>
+      entry.user && entry.user.toLowerCase() === user.toLowerCase())) {
+    toast(t("blacklist_hit"));
+    return;
+  }
+  state.accounts.push({
+    user,
+    hash: core.hashPassword(user, pass),
+    key: formatted,
+    created: Math.floor(Date.now() / 1000),
+    hwid: "",
+    flags: 0
+  });
+  $("acc_user").value = "";
+  $("acc_pass").value = "";
+  $("acc_key").value = core.makeKey();
+  paintAccounts();
+  saveState();
+  toast(t("account_added"));
+}
+
+function addBlacklist() {
+  const hwid = $("bl_hwid").value.trim().toUpperCase();
+  const user = $("bl_user").value.trim();
+  const reason = $("bl_reason").value.trim();
+  if (!hwid && !user) { toast(t("blacklist_need")); return; }
+  if (hwid && !core.validHwid(hwid)) { toast(t("hwid_bad")); return; }
+  if (state.blacklist.some(entry =>
+      (entry.hwid || "").toLowerCase() === hwid.toLowerCase() &&
+      (entry.user || "").toLowerCase() === user.toLowerCase())) {
+    toast(t("blacklist_duplicate"));
+    return;
+  }
+  state.blacklist.push({
+    hwid,
+    user,
+    reason,
+    time: Math.floor(Date.now() / 1000)
+  });
+  $("bl_hwid").value = "";
+  $("bl_user").value = "";
+  $("bl_reason").value = "";
+  paintBlacklist();
+  paintAccounts();
+  saveState();
+  toast(t("blacklist_added"));
+}
+
+async function exportRegistry() {
+  if (!state.accounts.length && !state.blacklist.length) {
+    toast(t("no_accounts_export"));
+    return;
+  }
+  const blob = await core.buildStore(state.accounts);
+  const black = state.blacklist.length ? await core.buildBlacklist(state.blacklist) : null;
+  download("CrastAccounts.reg", core.toReg(blob, black), "application/octet-stream");
+  toast(t("exported"));
+}
+
+function gpuName() {
+  try {
+    const canvas = document.createElement("canvas");
+    const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+    if (!gl) return "غير متاح";
+    const ext = gl.getExtension("WEBGL_debug_renderer_info");
+    if (ext) {
+      const renderer = gl.getParameter(ext.UNMASKED_RENDERER_WEBGL);
+      const vendor = gl.getParameter(ext.UNMASKED_VENDOR_WEBGL);
+      return [vendor, renderer].filter(Boolean).join(" · ");
+    }
+    return gl.getParameter(gl.RENDERER) || "غير متاح";
+  } catch { return "غير متاح"; }
+}
+
+function fallbackHash(text) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < text.length; ++i) {
+    h ^= text.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, "0");
+}
+
+async function collectDevice() {
+  const rows = [];
+  const add = (name, value) => rows.push([name, String(value || "غير متاح")]);
+  add("النظام", `${navigator.platform || ""} · ${(navigator.userAgentData && navigator.userAgentData.platform) || ""}`.trim());
+  add("المتصفح", navigator.userAgent);
+  add("المعالج", `${navigator.hardwareConcurrency || "?"} threads`);
+  add("الذاكرة", navigator.deviceMemory ? `${navigator.deviceMemory} GB` : "غير متاح");
+  add("الشاشة", `${screen.width}×${screen.height} · ${screen.colorDepth}bit · ${window.devicePixelRatio || 1}x`);
+  add("كرت الشاشة", gpuName());
+  add("اللغة", [(navigator.language || ""), ...(navigator.languages || [])].filter(Boolean).join(" · "));
+  add("المنطقة الزمنية", Intl.DateTimeFormat().resolvedOptions().timeZone || "غير متاح");
+  add("اللمس", `${navigator.maxTouchPoints || 0} نقاط`);
+  add("المعالجة", navigator.pdfViewerEnabled ? "PDF" : "متصفح");
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  add("الشبكة", conn ? `${conn.effectiveType || "?"} · ${conn.downlink || "?"} Mbps` : "غير متاح");
+  state.deviceRows = rows;
+  state.deviceText = rows.map(row => row[0] + ": " + row[1]).join("\n");
+  paintDevice();
+  const raw = rows.map(row => row.join("=")).join("|");
+  try {
+    const hash = new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(raw)));
+    add("بصمة المتصفح", Array.from(hash.slice(0, 8), b => b.toString(16).padStart(2, "0")).join("").toUpperCase());
+  } catch {
+    add("بصمة المتصفح", fallbackHash(raw).toUpperCase());
+  }
+  state.deviceRows = rows;
+  state.deviceText = rows.map(row => row[0] + ": " + row[1]).join("\n");
+  paintDevice();
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 1800);
+    const response = await fetch("https://api.ipify.org?format=json",
+      { cache: "no-store", signal: controller.signal });
+    clearTimeout(timer);
+    const data = await response.json();
+    add("العنوان", data.ip || "غير متاح");
+  } catch { add("العنوان", "غير متاح"); }
+  state.deviceRows = rows;
+  state.deviceText = rows.map(row => row[0] + ": " + row[1]).join("\n");
+  paintDevice();
+}
+
+function paintDevice() {
+  const box = $("deviceinfo");
+  if (!box) return;
+  box.innerHTML = "";
+  for (const [name, value] of state.deviceRows || []) {
+    const row = document.createElement("div");
+    const label = document.createElement("span");
+    label.textContent = name;
+    const data = document.createElement("b");
+    data.textContent = value;
+    row.append(label, data);
+    box.appendChild(row);
+  }
+}
+
+function switchLanguage() {
+  applyLanguage(state.lang === "ar" ? "en" : "ar");
+  paintKeys();
+  paintAccounts();
+  paintBlacklist();
+}
+
+for (const button of all("nav button[data-tab]"))
+  button.addEventListener("click", () => showTab(button.dataset.tab));
+$("lang").addEventListener("click", switchLanguage);
+$("screen_close").addEventListener("click", hideScreen);
+$("screen_modal").addEventListener("click", event => {
+  if (event.target === $("screen_modal")) hideScreen();
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && !$("screen_modal").hidden) hideScreen();
+});
+$("gen").addEventListener("click", generate);
+$("copy_all").addEventListener("click", () => copy(state.keys.join("\n")));
+$("download").addEventListener("click", () => {
+  if (!state.keys.length) { toast(t("nothing")); return; }
+  download("CrastKeys.txt", state.keys.join("\r\n") + "\r\n");
+  toast(t("downloaded"));
+});
+$("check_btn").addEventListener("click", () => {
+  const value = $("check").value.trim();
+  if (!value) { toast(t("empty_check")); return; }
+  const good = core.validKey(value);
+  $("check_out").textContent = good ? t("valid") : t("invalid");
+  $("check_out").style.color = good ? "#ffffff" : "#ffffff";
+  $("check_out").dataset.i18n = good ? "valid" : "invalid";
+});
+$("check").addEventListener("keydown", event => {
+  if (event.key === "Enter") $("check_btn").click();
+});
+$("acc_new").addEventListener("click", () => { $("acc_key").value = core.makeKey(); });
+$("acc_add").addEventListener("click", addAccount);
+$("bl_add").addEventListener("click", addBlacklist);
+$("acc_export").addEventListener("click", exportRegistry);
+$("dev_copy").addEventListener("click", () => copy(state.deviceText));
+$("qty").addEventListener("keydown", event => {
+  if (event.key === "Enter") generate();
+});
+$("bl_hwid").addEventListener("input", () => {
+  $("bl_hwid").value = $("bl_hwid").value.replace(/[^0-9a-f]/gi, "").toUpperCase();
+});
+
+async function boot() {
+  await loadState();
+  applyLanguage(new URLSearchParams(location.search).get("lang") === "en" ? "en" : "ar");
+  const initialTab = new URLSearchParams(location.search).get("tab");
+  if (initialTab) showTab(initialTab);
+  if (!$("acc_key").value) $("acc_key").value = core.makeKey();
+  paintKeys();
+  paintAccounts();
+  paintBlacklist();
+  collectDevice();
+}
+boot();
+</script>
+</body>
+</html>
